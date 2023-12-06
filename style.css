@@ -1,0 +1,595 @@
+@charset "utf-8";
+
+*{
+    color: #121212;
+}
+body {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 100%;
+    background: #fff;
+}
+
+.logo {
+    color: #121212;
+    margin: 10px;
+    padding: 5px;
+    font-size: 2.0rem;
+    line-height: 2.2rem;
+}
+
+.site-title {
+    font-size: 3.0rem;
+    font-weight: 400;
+    margin: 130px auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+
+.wrapper {
+    margin-bottom: 50px;
+    padding: 0 5%;
+}   
+
+/* ハンバーガーメニュー */
+header {
+    display: flex;
+    padding: 0 4%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sp-menu {
+    margin-left: auto;  
+}
+
+.sp-menu #open {
+    font-size: 2rem;
+    line-height: 3.2rem;
+    cursor: pointer;
+}
+
+.sp-menu #open.hide{
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 60px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+.overlay show {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 99;
+}
+
+
+.overlay #close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    cursor: pointer;
+}
+
+/* ハンバーガーメニューをクリックすると項目がふわっと時差で出てくるようにする */
+.overlay li {
+    margin-top: 24px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .3s, transform .3s;
+}
+
+.overlay.show li {
+    opacity: 1;
+    transform: none;
+}
+
+.overlay.show li:nth-child(1) {
+    transition-delay: .1s;
+}
+.overlay.show li:nth-child(2) {
+    transition-delay: .2s;
+}
+.overlay.show li:nth-child(3) {
+    transition-delay: .3s;
+}
+.overlay.show li:nth-child(4) {
+    transition-delay: .4s;
+}
+
+/* pcサイズでの設定 */
+.pc-menu {
+    display: none;
+}
+
+@media screen and (min-width:768px) {
+    .pc-menu {
+        display: block;
+        margin-left: auto;
+    }
+
+    .pc-menu ul {
+        display: flex;
+    }
+
+    .pc-menu a {
+        display: block;
+        color: #121212;
+        width: 180px;
+        line-height: 3.2rem;
+        text-align: center;
+    }
+
+    .pc-menu a:hover {
+        color: #ffce33;
+        transition-duration: 0.5s;
+    }
+
+    .sp-menu {
+        display: none;
+    }   
+}
+
+
+#slider {
+    width: 100%;
+    height: 100vh;
+}
+
+a{
+    color: #fff;
+}
+
+a:hover,
+a:active{
+    text-decoration: none;
+}
+
+/*重要：z-index確認 */
+h1{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 6vw;
+    letter-spacing: 0.1em;
+    color: #fff;
+}
+
+.mv{
+    position: relative;
+}
+
+.sectitle {
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+    text-align: center;
+    margin: 130px auto 30px auto;
+    padding: 0;
+}
+
+/* ミッション　grid-container */
+/* .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "item1 text1"
+    "text2 item2"
+    "item3 text3"
+    ;
+    max-width: 1000px;
+    margin: 50px auto 150px auto;
+    align-items: center;
+}
+
+.grid-item1 grid-item2 grid-item3 {
+    grid-area: item;
+    width: 100%;
+    height: auto;
+    /* padding: 1rem; */
+/* }
+
+.grid-text1 grid-text2 grid-text3 {
+    grid-area: text;
+    width: 400px;
+    height: 360px;
+    padding: 20px;
+}
+
+.grid-text li {
+    margin: 20px;
+}
+
+.grid-text li p {
+    font-size: 1.2rem;
+} */ */
+
+/* fade */
+
+.fadeUp{
+    /* アニメーション名 */
+    animation-name: fadeUpAnime;
+    /* アニメーションの開始を遅らせる */
+    animation-delay: 0.2s;
+    /* アニメーションを何秒で完了させるか */
+    animation-duration: 1s;
+    /* アニメーション終了時に最後の@keyframesの100%のスタイルを適用 */
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeUpTrigger {
+    opacity: 1;
+}
+
+
+  
+/* responsive design */
+/* @media screen and (max-width:768px) {
+    .grid-container {
+        grid-template-columns: repeat(1fr)
+        grid-template-areas:
+        "item1
+         text1
+         item2
+         text2
+         item3
+         text3";
+        }
+} */
+
+/* .container{
+    background: #ffffff;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.container p{
+    line-height: 2.0rem;
+    text-align: center;
+    columns: #fff;
+}
+
+.container ul{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px auto;
+} */
+
+/* スライダーのためのcss */
+.lslider {
+    width: 94%;
+    margin: 0 auto;
+}
+
+.lslider img {
+    width: 40vw;
+    height: auto;
+}
+
+.lslider .slick-slide {
+    transform: scale(0.8);
+    transition: all 1s;
+    opacity: 0.5;
+}
+
+.lslider .slick-slide.slick-center{
+    transform: scale(1);
+    opacity: 1;
+}
+
+/*矢印の設定*/
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 42%;
+    cursor: pointer;
+    outline: none;
+    border-top: 2px solid #666;
+    border-right: 2px solid #666;
+    height: 15px;
+    width: 15px;
+}
+
+.slick-prev {
+    left: -1.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {
+    right: -1.5%;
+    transform: rotate(-135deg);
+}
+
+/* dotナビゲーション */
+.slick-dots {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width: 8px;
+    height: 8px;
+    display: block;
+    border-radius: 50%;
+    background: #666;
+}
+
+.slick-dots .slick-active button{
+    background: #666;
+}
+/* ここまでslick */
+
+/* mission */
+
+section #mission {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#mission p {
+    font-size: 1.3rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.card{
+    width: 45%;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #efefef;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+.card h4 {
+    text-align: center;
+    margin: 7px;
+    color: #e37200;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.card ul li {
+    margin: 10px;
+}
+.card ul li p {
+    font-size: 1.2rem;
+    color: #121212;
+}
+
+.card a{
+    font-size: 1.5rem;
+    display: flex;
+    margin-top: 0.75rem;
+    color: #e37200;
+    align-items: center;
+}
+
+.card a:hover {
+    color:  #ffce33;
+    transition-duration: 0.5s;
+}
+
+.card svg {
+    width: 1rem;
+    margin: 5px;
+    color: #FFA07A;
+}
+
+@media screen and (max-width:768px) {
+    /* .cards {
+        flex-direction: column;
+    } */
+    .card {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+/* works */
+
+#works ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#works ul li {
+    width: 31%;
+    margin-bottom: 23px;
+}
+
+#works ul li img {
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+#works ul li img:hover {
+    transition: scale(1.1, 1.1);
+    opacity: 0.7;
+}
+
+
+/* sp */
+@media screen and (max-width:768px) {
+    #works ul {
+        flex-direction: column;
+    }
+
+    #works ul li {
+        width: 100%;
+    }
+
+}
+
+/* contact */
+#contact p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contact dl {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#contact dt {
+    width: 15%;
+    margin-bottom: 10px;
+}
+
+#contact dd {
+    width: 85%;
+    margin-bottom: 10px;
+}
+
+#contact dd input,
+#contact dd textarea {
+    width: 100%;
+    border: 1px solid #c8c8c8;
+    padding: 10px;
+}
+
+#contact dd textarea {
+    height: 10rem;
+}
+
+#contact .button {
+    text-align: center;
+}
+
+#contact .button input {
+    border: 1px solid #121212;
+    background-color: #121212;
+    width: 200px;
+    padding: 15px 0;
+    color: #fff;
+    transition: all 0.3s;
+}
+#contact .button input:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+@media screen and (max-width:768px) {
+    #contact dl {
+        flex-direction: column;
+    }
+    #contact dt {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #contact dd {
+        width: 100%;
+    }
+}
+
+
+
+/* フッター */
+footer {
+    width: 100%;
+    height: 120px;
+    background-color: #ffce33;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer-menu ul {
+    display: flex;
+}
+.footer-menu ul li {
+    padding: 5px;
+}
+
+
+.footer-menu ul a {
+    color: #121212;
+}
+
+.footer-menu ul a:hover{
+    color: #ff782b;
+    transition-duration: 0.5s;
+}
+
+.logo {
+    align-items: end;
+}
+
+@media screen and (max-width:768px) {
+    footer {
+      flex-direction: column;
+    }
+   
+    .footer-menu ul {
+      justify-content: space-around;
+    }
+   
+    .logo {
+      align-self: center;
+    }
+}
