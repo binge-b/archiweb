@@ -1,26 +1,21 @@
 @charset "utf-8";
 
-*{
-    color: #121212;
-}
 body {
     font-family: 'Zen Kaku Gothic New', sans-serif;
     font-size: 100%;
     background: #fff;
-}
-
-.logo {
     color: #121212;
-    margin: 10px;
-    padding: 5px;
-    font-size: 2.0rem;
-    line-height: 2.2rem;
 }
 
 .site-title {
-    font-size: 3.0rem;
+    font-size: 2.0rem;
+    line-height: 2.2rem;
     font-weight: 400;
-    margin: 130px auto;
+    padding: 5px;
+    color: #121212;
+}
+.site-title a{
+    color: #121212;
 }
 
 a {
@@ -34,7 +29,7 @@ ul {
 }
 
 section {
-    margin-top: 50px;
+    margin: 30px auto;
 }
 
 
@@ -195,107 +190,6 @@ h1{
     padding: 0;
 }
 
-/* ミッション　grid-container */
-/* .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: 
-    "item1 text1"
-    "text2 item2"
-    "item3 text3"
-    ;
-    max-width: 1000px;
-    margin: 50px auto 150px auto;
-    align-items: center;
-}
-
-.grid-item1 grid-item2 grid-item3 {
-    grid-area: item;
-    width: 100%;
-    height: auto;
-    /* padding: 1rem; */
-/* }
-
-.grid-text1 grid-text2 grid-text3 {
-    grid-area: text;
-    width: 400px;
-    height: 360px;
-    padding: 20px;
-}
-
-.grid-text li {
-    margin: 20px;
-}
-
-.grid-text li p {
-    font-size: 1.2rem;
-} */ */
-
-/* fade */
-
-.fadeUp{
-    /* アニメーション名 */
-    animation-name: fadeUpAnime;
-    /* アニメーションの開始を遅らせる */
-    animation-delay: 0.2s;
-    /* アニメーションを何秒で完了させるか */
-    animation-duration: 1s;
-    /* アニメーション終了時に最後の@keyframesの100%のスタイルを適用 */
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-
-@keyframes fadeUpAnime{
-    from {
-        opacity: 0;
-        transform: translateY(80px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fadeUpTrigger {
-    opacity: 1;
-}
-
-
-  
-/* responsive design */
-/* @media screen and (max-width:768px) {
-    .grid-container {
-        grid-template-columns: repeat(1fr)
-        grid-template-areas:
-        "item1
-         text1
-         item2
-         text2
-         item3
-         text3";
-        }
-} */
-
-/* .container{
-    background: #ffffff;
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 30px 0;
-}
-
-.container p{
-    line-height: 2.0rem;
-    text-align: center;
-    columns: #fff;
-}
-
-.container ul{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px auto;
-} */
-
 /* スライダーのためのcss */
 .lslider {
     width: 94%;
@@ -304,6 +198,7 @@ h1{
 
 .lslider img {
     width: 40vw;
+    min-width: 400px;
     height: auto;
 }
 
@@ -437,9 +332,9 @@ section #mission {
 }
 
 @media screen and (max-width:768px) {
-    /* .cards {
+    .cards {
         flex-direction: column;
-    } */
+    }
     .card {
         width: 100%;
     }
